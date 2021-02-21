@@ -1,0 +1,34 @@
+{% extends "mathquiz/layout.html" %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="header">
+            <h1>Math Quiz</h1>
+        </div>
+        
+
+        <div class="main">
+            <div data-id="{{ quiz.id }}" class="question">{{ quiz.question }}</div>
+            
+
+            <div id="message">Quiz Over</div>
+            
+            <div class="buttons">
+                <!-- <button class="ok">OK</button> -->
+                {% if not endButton %}
+                    <a id="nextBtn" class="btn" href="{% url 'mathquiz:index' %}">Next</a>
+                {% else %}
+                    <a id="nextBtn" class="btn" href="{% url 'mathquiz:index' %}">End</a>
+                {% endif %}
+
+                <a id="replay" href="{% url 'mathquiz:replay' %}">Replay</a>
+            </div>
+
+        </div>
+    </div>
+    
+
+
+
+{% endblock %}
