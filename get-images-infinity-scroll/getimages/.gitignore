@@ -1,0 +1,8 @@
+*\.pyc
+*\.mo
+\.idea/
+\.env
+
+*.sqlite3
+
+prod.py
