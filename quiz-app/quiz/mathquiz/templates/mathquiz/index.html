@@ -1,52 +1,42 @@
-{% extends "mathquiz/layout.html" %}
+{% extends "mathquiz/layout.html" %} {% block body %}
 
-{% block body %}
+<div class="container">
+  <div class="header">
+    <h1>Math Quiz</h1>
+  </div>
 
-    <div class="container">
-        <div class="header">
-            <h1>Math Quiz</h1>
-        </div>
-        
-        <div class="progress-score">
-            <div class="progressbar-container">
-                <div class="progressbar">
-                    <div class="currentprogressbar">
-                        Question {{ question_num }} / 10
-                    </div>
-                </div>
-                
-                
-            </div>
-            <div class="score">
-                Score
-                <div id="currentscore"></div>
-            </div>
-        </div>
-
-        <div class="main">
-            <div data-id="{{ quiz.id }}" class="question">{{ quiz.question }}</div>
-            
-            <div class="alloptions">
-                <div data-id="{{ quiz.option1 }}" class="option">{{ quiz.option1 }}</div>
-                <div data-id="{{ quiz.option2 }}" class="option">{{ quiz.option2 }}</div>
-                <div data-id="{{ quiz.option3 }}" class="option">{{ quiz.option3 }}</div>
-                <div data-id="{{ quiz.option4 }}" class="option">{{ quiz.option4 }}</div>
-            </div>
-
-            <div id="message"></div>
-            
-            <div class="buttons">
-                <!-- <button class="ok">OK</button> -->
-                {% if not endButton %}
-                    <a id="nextBtn" class="btn" href="{% url 'mathquiz:index' %}">Next</a>
-                {% else %}
-                    <a id="nextBtn" class="btn" href="{% url 'mathquiz:index' %}">End</a>
-                {% endif %}
-            </div>
-        </div>
+  <div class="progress-score">
+    <div class="progressbar-container">
+      <div class="progressbar">
+        <div class="currentprogressbar">Question {{ question_num }} / 10</div>
+      </div>
     </div>
-    
-    <script src="{% static 'mathquiz/index.js' %}"></script>
+    <div class="score">
+      Score
+      <div id="currentscore"></div>
+    </div>
+  </div>
 
+  <div class="main">
+    <div data-id="{{ quiz.id }}" class="question">{{ quiz.question }}</div>
+
+    <div class="alloptions">
+      <div data-id="{{ quiz.option1 }}" class="option">{{ quiz.option1 }}</div>
+      <div data-id="{{ quiz.option2 }}" class="option">{{ quiz.option2 }}</div>
+      <div data-id="{{ quiz.option3 }}" class="option">{{ quiz.option3 }}</div>
+      <div data-id="{{ quiz.option4 }}" class="option">{{ quiz.option4 }}</div>
+    </div>
+
+    <div id="message"></div>
+
+    <div class="buttons">
+      {% if not endButton %}
+      <a id="nextBtn" class="btn" href="{% url 'mathquiz:index' %}">Next</a>
+      {% else %}
+      <a id="nextBtn" class="btn" href="{% url 'mathquiz:index' %}">End</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
 
 {% endblock %}
